@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#555555",
+                    "on-primary-container": "#4f0000",
+                    "tertiary-fixed-dim": "#c889f1",
+                    "on-surface": "#ffffff",
+                    "inverse-primary": "#c10100",
+                    "on-error": "#490013",
+                    "on-tertiary-container": "#47026f",
+                    "error-dim": "#d73357",
+                    "secondary-fixed-dim": "#ffaeb4",
+                    "on-tertiary-fixed": "#2a0044",
+                    "surface-container": "#191919",
+                    "inverse-surface": "#f9f9f9",
+                    "surface-container-highest": "#262626",
+                    "secondary-dim": "#f47785",
+                    "secondary-fixed": "#ffc2c6",
+                    "secondary-container": "#842133",
+                    "on-secondary-container": "#ffc0c4",
+                    "on-secondary-fixed": "#6a0c22",
+                    "on-surface-variant": "#ababab",
+                    "on-primary": "#650000",
+                    "tertiary-container": "#d191fa",
+                    "primary-fixed": "#ff7763",
+                    "on-error-container": "#ffb2b9",
+                    "tertiary-fixed": "#d697ff",
+                    "surface-variant": "#262626",
+                    "on-tertiary": "#53157a",
+                    "surface-container-high": "#1f1f1f",
+                    "primary-fixed-dim": "#ff5b47",
+                    "surface-container-lowest": "#000000",
+                    "error-container": "#a70138",
+                    "surface-dim": "#0e0e0e",
+                    "outline-variant": "#484848",
+                    "on-tertiary-fixed-variant": "#56197d",
+                    "on-primary-fixed": "#000000",
+                    "primary-dim": "#eb0000",
+                    "background": "#0e0e0e",
+                    "error": "#ff6e84",
+                    "on-background": "#ffffff",
+                    "primary-container": "#ff7763",
+                    "surface": "#0e0e0e",
+                    "secondary": "#fe7e8c",
+                    "outline": "#757575",
+                    "surface-bright": "#2c2c2c",
+                    "surface-container-low": "#131313",
+                    "on-secondary": "#570017",
+                    "on-secondary-fixed-variant": "#912b3c",
+                    "tertiary": "#dba2ff",
+                    "primary": "#ff8e7d",
+                    "on-primary-fixed-variant": "#600000",
+                    "tertiary-dim": "#c384eb",
+                    "surface-tint": "#ff8e7d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0e0e0e;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #ff8e7d 0%, #eb0000 100%);
+        }
+        .no-line-philosophy {
+            border: none !important;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<nav class="bg-black/90 backdrop-blur-xl docked full-width top-0 z-50 no-line-philosophy bg-zinc-900/50 sticky">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<a href="../quick_convert_home_page/code.html" class="text-2xl font-black tracking-tighter text-white uppercase font-['Inter'] hover:opacity-90 transition-opacity">
+    QUICK <span class="text-red-600">CONVERT</span>
+</a>
+<div class="hidden md:flex gap-6">
+<a href="../quick_convert_home_page/code.html" class="text-red-500 font-bold border-b-2 border-red-500 pb-1 font-['Inter'] tracking-tight headline-lg transition-all duration-300">Tools</a>
+<a href="../pricing_page/code.html" class="text-zinc-400 font-medium hover:text-white transition-colors font-['Inter'] tracking-tight headline-lg transition-all duration-300">Pricing</a>
+<a href="#" class="text-zinc-400 font-medium hover:text-white transition-colors font-['Inter'] tracking-tight headline-lg transition-all duration-300">API</a>
+<a href="#" class="text-zinc-400 font-medium hover:text-white transition-colors font-['Inter'] tracking-tight headline-lg transition-all duration-300">Support</a>
+</div>
+</div>
+<button class="bg-red-600 text-white px-6 py-2 rounded-full font-bold uppercase tracking-widest text-xs hover:scale-95 active:scale-90 transition-all duration-300 kinetic-gradient shadow-[0_0_20px_rgba(235,0,0,0.3)]">
+            Get Pro
+        </button>
+</div>
+</nav>
+<main class="max-w-screen-2xl mx-auto px-8 pt-20 pb-32">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Hero Content -->
+<div class="lg:col-span-5 space-y-8 mt-12">
+<div class="space-y-4">
+<span class="text-primary font-bold tracking-[0.2em] text-[10px] uppercase block">Engine v4.0 Active</span>
+<h1 class="text-6xl md:text-7xl font-black tracking-tighter leading-[0.9] text-white">
+                    High-Performance <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-600">File Conversion.</span>
+</h1>
+</div>
+<p class="text-on-surface-variant text-lg max-w-md leading-relaxed">
+                Experience the precision of a high-end dashboard. Zero clutter, maximum velocity. Convert your assets through our cinematic dark-mode processing suite.
+            </p>
+<div class="hero-badges flex flex-wrap gap-4 pt-4">
+<div class="bg-surface-container px-4 py-2 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">speed</span>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">4GB/s Processing</span>
+</div>
+<div class="bg-surface-container px-4 py-2 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">AES-256 Encryption</span>
+</div>
+</div>
+</div>
+<!-- Kinetic Drop Zone & Queue -->
+<div class="lg:col-span-7 space-y-8">
+<div class="bg-surface-container-low rounded-[2rem] p-4 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<div id="dropZone" class="bg-surface-container-high border-2 border-dashed border-outline-variant/30 rounded-[1.5rem] p-12 md:p-24 flex flex-col items-center justify-center text-center gap-8 relative z-10 transition-colors duration-500 hover:border-primary/40">
+<input type="file" id="fileInput" class="hidden" multiple/>
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/20 blur-2xl rounded-full scale-0 group-hover:scale-100 transition-transform duration-500"></div>
+<span class="material-symbols-outlined text-7xl text-primary relative" style="font-variation-settings: 'wght' 200;">upload_file</span>
+</div>
+<div class="space-y-2">
+<h3 class="text-2xl font-bold tracking-tight text-white">Drag your files here</h3>
+<p class="text-on-surface-variant text-sm font-medium">Supporting PDF, PNG, JPG, MP4, and 200+ more.</p>
+</div>
+<div class="flex flex-col items-center gap-6 w-full max-w-sm">
+<button id="selectBtn" class="w-full kinetic-gradient text-white font-black py-5 rounded-full text-sm uppercase tracking-[0.2em] shadow-xl hover:scale-[0.98] transition-transform active:scale-95 flex items-center justify-center gap-3">
+<span>Select Files</span>
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+<span class="text-[10px] text-zinc-600 font-bold uppercase tracking-widest">Or drop anywhere on screen</span>
+</div>
+</div>
+</div>
+<!-- Conversion Queue Section -->
+<div class="bg-surface-container-low rounded-3xl overflow-hidden border border-zinc-800">
+<div class="px-6 py-4 border-b border-zinc-800 flex justify-between items-center bg-surface-container-high/50">
+    <h3 class="text-sm font-black uppercase tracking-[0.15em] text-white flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span>
+        Conversion Queue
+    </h3>
+    <div class="flex items-center gap-4">
+        <button id="downloadAllBtn" class="hidden kinetic-gradient text-white px-4 py-1.5 rounded-full font-black text-[10px] uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-[0_0_15px_rgba(235,0,0,0.3)] flex items-center gap-2">
+            <span>Download All</span>
+            <span class="material-symbols-outlined text-[14px]">download_for_offline</span>
+        </button>
+        <span id="queueCount" class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">0 Files Active</span>
+    </div>
+</div>
+<div id="queueContainer" class="p-6 space-y-6">
+<!-- Queue Items will be dynamically added here -->
+</div>
+</div>
+<!-- Active Conversion State Preview (Contextual) -->
+<div id="stagingWrapper" class="hidden space-y-4 pt-4 border-t border-zinc-900 mt-6 transition-all duration-500">
+    <div class="flex justify-between items-center bg-surface-container-high/30 px-6 py-4 rounded-xl border border-zinc-800">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary-fixed">rule_folder</span>
+            <h3 class="text-[10px] font-black text-white uppercase tracking-[0.2em]">Ready to Convert</h3>
+        </div>
+        <button id="convertAllBtn" class="kinetic-gradient text-white px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-[0.15em] hover:scale-105 active:scale-95 transition-transform flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(235,0,0,0.3)]">
+            <span>Convert All</span>
+            <span class="material-symbols-outlined text-sm font-bold">bolt</span>
+        </button>
+    </div>
+    <div id="stagingContainer" class="space-y-4"></div>
+</div>
+</div>
+</div>
+<!-- Featured Formats / Bento Grid (Restored) -->
+<div class="mt-32 grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="md:col-span-2 bg-surface-container-low rounded-3xl p-8 flex flex-col justify-between overflow-hidden relative">
+<div class="z-10">
+<h4 class="text-white font-black text-2xl tracking-tighter mb-2">Massive Scale</h4>
+<p class="text-on-surface-variant text-sm">Batch process thousands of images in seconds without losing quality.</p>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[12rem]">dynamic_feed</span>
+</div>
+<div class="mt-8 flex gap-2">
+<span class="bg-tertiary-container/20 text-tertiary text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">PRO FEATURE</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-3xl p-8 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-4 block group-hover:scale-110 transition-transform">picture_as_pdf</span>
+<h4 class="text-white font-bold tracking-tight">PDF Suite</h4>
+<p class="text-zinc-500 text-xs mt-2">Compress, Merge, Split.</p>
+</div>
+<div class="bg-surface-container rounded-3xl p-8 hover:bg-surface-container-high transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary mb-4 block group-hover:scale-110 transition-transform">video_library</span>
+<h4 class="text-white font-bold tracking-tight">Video Hub</h4>
+<p class="text-zinc-500 text-xs mt-2">MP4, MOV, WEBM, GIF.</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-zinc-900/50 bg-zinc-950">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-8 py-12 gap-6 max-w-screen-2xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-4">
+<a href="../quick_convert_home_page/code.html" class="text-lg font-black tracking-tighter text-white uppercase font-['Inter'] hover:opacity-90 transition-opacity">QUICK <span class="text-red-600">CONVERT</span></a>
+<p class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-500">© 2024 Quick Convert. High-Performance File Processing.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-500 hover:text-red-500 transition-colors opacity-80 hover:opacity-100" href="#">Privacy</a>
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-500 hover:text-red-500 transition-colors opacity-80 hover:opacity-100" href="#">Terms</a>
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-500 hover:text-red-500 transition-colors opacity-80 hover:opacity-100" href="#">Security</a>
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-zinc-500 hover:text-red-500 transition-colors opacity-80 hover:opacity-100" href="#">Status</a>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    gsap.from("nav", { y: -50, opacity: 0, duration: 1, ease: "power3.out" });
+    gsap.from("h1, p", { y: 30, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out", delay: 0.3 });
+    gsap.from(".hero-badges", { scale: 0.9, opacity: 0, duration: 0.8, ease: "back.out(1.7)", delay: 0.8 });
+    gsap.from("#dropZone", { scale: 0.95, opacity: 0, duration: 1, ease: "power3.out", delay: 0.5 });
+    
+    // File upload logic securely flawlessly dynamically automatically
+    const dropZone = document.getElementById("dropZone");
+    const fileInput = document.getElementById("fileInput");
+    const selectBtn = document.getElementById("selectBtn");
+    const queueContainer = document.getElementById("queueContainer");
+    const queueCount = document.getElementById("queueCount");
+    const stagingWrapper = document.getElementById("stagingWrapper");
+    const convertAllBtn = document.getElementById("convertAllBtn");
+    const downloadAllBtn = document.getElementById("downloadAllBtn");
+    let activeFiles = 0;
+
+    function checkDownloadAll() {
+        if (!downloadAllBtn) return;
+        const readyFiles = document.querySelectorAll('.download-btn');
+        if (readyFiles.length > 1) {
+            downloadAllBtn.classList.remove('hidden');
+        } else {
+            downloadAllBtn.classList.add('hidden');
+        }
+    }
+
+    if (downloadAllBtn) {
+        downloadAllBtn.addEventListener("click", () => {
+            const btns = document.querySelectorAll('.download-btn');
+            btns.forEach((btn, idx) => {
+                setTimeout(() => btn.click(), idx * 250);
+            });
+        });
+    }
+
+    convertAllBtn.addEventListener("click", () => {
+        const btns = document.querySelectorAll('#stagingContainer .convert-btn:not(.opacity-50)');
+        btns.forEach((btn, idx) => {
+            setTimeout(() => btn.click(), idx * 100);
+        });
+    });
+
+    const highlight = () => gsap.to(dropZone, { scale: 1.02, borderColor: "#ff8e7d", duration: 0.3 });
+    const unhighlight = () => gsap.to(dropZone, { scale: 1, borderColor: "rgba(72, 72, 72, 0.3)", duration: 0.3 });
+
+    ['dragenter', 'dragover'].forEach(eventName => dropZone.addEventListener(eventName, e => {
+        e.preventDefault();
+        highlight();
+    }));
+
+    ['dragleave', 'drop'].forEach(eventName => dropZone.addEventListener(eventName, e => {
+        e.preventDefault();
+        unhighlight();
+    }));
+
+    dropZone.addEventListener('drop', e => {
+        let dt = e.dataTransfer;
+        let files = dt.files;
+        handleFiles(files);
+    });
+
+    selectBtn.addEventListener("click", () => fileInput.click());
+    fileInput.addEventListener("change", function() { handleFiles(this.files); });
+
+    const SUPPORTED_CONVERSIONS = {
+        ".pdf": [".docx", ".txt", ".png", ".jpeg", ".pptx"],
+        ".docx": [".pdf", ".txt", ".pptx"],
+        ".doc": [".pdf", ".docx", ".txt"],
+        ".pptx": [".pdf", ".docx"],
+        ".xlsx": [".pdf", ".csv"],
+        ".xls": [".pdf", ".xlsx", ".csv"],
+        ".csv": [".pdf", ".xlsx"],
+        ".txt": [".pdf", ".docx"],
+        ".png": [".pdf", ".jpeg"],
+        ".jpeg": [".pdf", ".png"],
+        ".jpg": [".pdf", ".png"],
+        ".mp4": [".mp3", ".gif", ".mov", ".avi"],
+        ".mov": [".mp3", ".gif", ".mp4", ".avi"],
+        ".avi": [".mp3", ".gif", ".mp4", ".mov"],
+        ".mp3": [".wav"],
+        ".wav": [".mp3"]
+    };
+
+    function handleFiles(files) {
+        [...files].forEach(stageFile);
+    }
+
+    function stageFile(file) {
+        let extMatch = file.name.match(/\.[0-9a-z]+$/i);
+        let ext = extMatch ? extMatch[0].toLowerCase() : "";
+        let supported = SUPPORTED_CONVERSIONS[ext] || [];
+        
+        let fileItem = document.createElement("div");
+        fileItem.className = "bg-surface-container-lowest rounded-xl p-6 border border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-4 opacity-0 translate-y-4";
+        
+        let optionsHtml = supported.length > 0 
+            ? supported.map(s => `<option value="${s}">TO ${s.replace('.','').toUpperCase()}</option>`).join('')
+            : `<option value="">NO FORMAT</option>`;
+            
+        fileItem.innerHTML = `
+            <div class="flex items-center gap-4 w-full md:w-auto">
+                <div class="w-12 h-12 bg-surface-container-high rounded flex items-center justify-center shrink-0">
+                    <span class="material-symbols-outlined text-zinc-500">description</span>
+                </div>
+                <div class="overflow-hidden">
+                    <p class="text-sm font-bold text-white tracking-tight truncate max-w-[200px] md:max-w-xs">${file.name}</p>
+                    <p class="text-[10px] text-zinc-500 uppercase tracking-widest">Ready to Convert</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 shrink-0">
+                <div class="bg-surface-container-high px-4 py-2 rounded-lg flex items-center gap-3 relative border border-transparent hover:border-primary-dim/30 transition-colors">
+                    <select class="format-select border-0 outline-none focus:ring-0 appearance-none bg-transparent text-[10px] sm:text-xs font-black text-white uppercase tracking-tighter cursor-pointer pe-4 m-0 shadow-none">
+                        ${optionsHtml}
+                    </select>
+                    <span class="material-symbols-outlined text-white text-[12px] absolute right-2 pointer-events-none">expand_more</span>
+                </div>
+                <button class="convert-btn bg-white text-black px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-primary transition-colors ${supported.length===0?'opacity-50 pointer-events-none':''}">
+                    Convert
+                </button>
+            </div>
+        `;
+        
+        stagingWrapper.classList.remove("hidden");
+        document.getElementById("stagingContainer").prepend(fileItem);
+        gsap.to(fileItem, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" });
+        
+        let convertBtn = fileItem.querySelector('.convert-btn');
+        convertBtn.addEventListener("click", () => {
+            let targetFormat = fileItem.querySelector('.format-select').value;
+            gsap.to(fileItem, { 
+                opacity: 0, 
+                scale: 0.95, 
+                duration: 0.3, 
+                onComplete: () => {
+                    fileItem.remove();
+                    if (document.getElementById("stagingContainer").children.length === 0) {
+                        stagingWrapper.classList.add("hidden");
+                    }
+                }
+            });
+            uploadFile(file, targetFormat);
+        });
+    }
+
+    function uploadFile(file, targetFormat) {
+        activeFiles++;
+        queueCount.innerText = `${activeFiles} Files Active`;
+        
+        let fileItem = document.createElement("div");
+        fileItem.className = "space-y-2 opacity-0";
+        
+        fileItem.innerHTML = `
+            <div class="flex justify-between items-end">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-zinc-500 text-lg">description</span>
+                    <span class="text-sm font-bold text-white tracking-tight">${file.name}</span>
+                </div>
+                <div class="status-container">
+                    <span class="status-text text-[10px] font-black text-red-600 uppercase tracking-widest bg-red-500/10 px-3 py-1 rounded-full border border-red-500/20 shadow-[0_0_10px_rgba(255,0,0,0.1)] inline-block">Processing...</span>
+                </div>
+            </div>
+            <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
+                <div class="progress-bar h-full bg-red-600 rounded-full w-0"></div>
+            </div>
+        `;
+        queueContainer.prepend(fileItem);
+        gsap.to(fileItem, { opacity: 1, duration: 0.5 });
+        gsap.to(fileItem.querySelector('.progress-bar'), { width: "50%", duration: 1.5 });
+
+        let formData = new FormData();
+        formData.append('file', file);
+        if (targetFormat) formData.append('targetFormat', targetFormat);
+
+        fetch('/api/convert', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            gsap.to(fileItem.querySelector('.progress-bar'), { width: "100%", duration: 0.5 });
+            
+            if (data.success) {
+                fileItem.querySelector('.progress-bar').classList.replace('bg-red-600', 'bg-green-500');
+                fileItem.querySelector('.status-container').innerHTML = `
+                    <a href="${data.download_url}" download target="_blank" class="download-btn flex items-center gap-2 bg-green-500/10 text-green-500 hover:bg-green-500 hover:text-black px-4 py-1.5 rounded-full font-black text-[10px] uppercase tracking-[0.15em] transition-colors border border-green-500/30 hover:border-green-500 shadow-[0_0_15px_rgba(0,255,0,0.15)]">
+                        <span>Download</span>
+                        <span class="material-symbols-outlined text-[14px]">download</span>
+                    </a>
+                `;
+                checkDownloadAll();
+            } else {
+                fileItem.querySelector('.status-text').innerText = data.error || "Failed";
+            }
+        })
+        .catch(err => {
+            fileItem.querySelector('.status-text').innerText = "Network Error";
+        })
+        .finally(() => {
+            activeFiles--;
+            queueCount.innerText = `${activeFiles} Files Active`;
+        });
+    }
+});
+</script>
+</body></html>
