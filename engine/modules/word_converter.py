@@ -50,7 +50,7 @@ class WordConverter(BaseConverter):
             if output_ext == ".txt":
                 return self._convert_to_txt()
             elif output_ext == ".pdf":
-                return self._convert_to_pdf_aspose()
+                return self._convert_to_pdf()
             elif output_ext == ".pptx":
                 return self._convert_to_pptx()
             else:
@@ -78,19 +78,60 @@ class WordConverter(BaseConverter):
             self.logger.error(f"Physical text Extraction halted: {e}")
             return False
 
-    def _convert_to_pdf_aspose(self) -> bool:
+    def _convert_to_pdf(self) -> bool:
         """
-        Converts DOCX to PDF using pure-Python Aspose.Words.
+        Converts DOCX to PDF prioritizing docx2pdf (Windows Native), fallback to LibreOffice (Linux),
+        and finally pure-Python Aspose.Words.
         """
-        self.logger.info("Engaging pure-Python Aspose.Words engine for DOCX -> PDF mapping.")
+        import platform
+        import subprocess
+        import shutil
+
+        self.logger.info("Engaging multi-fallback DOCX -> PDF mapping.")
+
+        # 1. Try docx2pdf natively (Perfect for Windows w/ MS Word)
+        if platform.system() == "Windows":
+            try:
+                from docx2pdf import convert as docx_convert
+                self.logger.info("Windows detected: Attempting docx2pdf payload routing.")
+                docx_convert(self.input_file, self.output_file)
+                self.logger.info(f"Successfully generated clean PDF via docx2pdf: {self.output_file}")
+                return True
+            except Exception as e:
+                self.logger.warning(f"docx2pdf routing failed or MS Word not natively installed: {e}")
+
+        # 2. Try LibreOffice Headless (Perfect for Linux/Render)
+        self.logger.info("Attempting fallback sequence to native LibreOffice headless engine...")
+        outdir = os.path.dirname(self.output_file)
+        command = [
+            "soffice", "--headless", "--nologo", "--nofirststartwizard",
+            "--convert-to", "pdf", self.input_file, "--outdir", outdir
+        ]
+        try:
+            result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+            if result.returncode == 0:
+                base_filename = os.path.basename(self.input_file)
+                name_no_ext, _ = os.path.splitext(base_filename)
+                lo_output_file = os.path.join(outdir, f"{name_no_ext}.pdf")
+                if lo_output_file != self.output_file and os.path.exists(lo_output_file):
+                    shutil.move(lo_output_file, self.output_file)
+                self.logger.info(f"Successfully generated native PDF via LibreOffice: {self.output_file}")
+                return True
+            else:
+                 self.logger.warning(f"LibreOffice backend failed natively: {result.stderr}")
+        except Exception as e:
+            self.logger.warning(f"LibreOffice command totally unresolvable natively: {e}")
+
+        # 3. Final Fallback: Aspose.Words (Will apply an evaluation watermark)
+        self.logger.info("Executing final structural fallback sequence via pure-Python Aspose.Words engine.")
         try:
             import aspose.words as aw
             doc = aw.Document(self.input_file)
             doc.save(self.output_file)
-            self.logger.info(f"Successfully generated pure PDF via Aspose engine: {self.output_file}")
+            self.logger.warning(f"Generated PDF via Aspose engine (Evaluation Watermark inevitably applied): {self.output_file}")
             return True
         except Exception as e:
-            self.logger.error(f"Aspose rendering severely halted: {e}")
+            self.logger.error(f"Aspose rendering severely physically halted: {e}")
             return False
 
     def _convert_to_pptx(self) -> bool:
